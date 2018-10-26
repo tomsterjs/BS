@@ -1,5 +1,6 @@
 const {queryConstants} = require("../../constants/product");
-const services = [];
+const bestBuy = require("../../services/best_buy");
+const services = [bestBuy];
 
 /**
  * Return the cheapest product
@@ -21,8 +22,7 @@ const getCheapestProduct = async (req, res, next) => {
   } catch (e) {
     next(e);
   }
-
-  res.send(`name = ${name} result =  ${JSON.stringify(product)}`);
+  res.send(product);
 };
 
 /**
