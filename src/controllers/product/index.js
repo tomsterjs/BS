@@ -1,6 +1,8 @@
 const {queryConstants} = require("../../constants/product");
 const bestBuy = require("../../services/best_buy");
-const services = [bestBuy];
+const walmart = require("../../services/walmart");
+
+const services = [bestBuy, walmart];
 
 /**
  * Return the cheapest product
@@ -17,7 +19,7 @@ const getCheapestProduct = async (req, res, next) => {
     let products = await getAllProducts(name);
     products = products.filter(element => element);
     if (products.length > 0) {
-      product = products.reduce((element, acc) => (!acc || element.price) < acc.price ? element : acc);
+      product = products.reduce((element, acc) => (!acc || element.bestPrice) < acc.bestPrice ? element : acc);
     }
   } catch (e) {
     next(e);

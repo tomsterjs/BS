@@ -3,7 +3,7 @@ const router = express.Router();
 const {getCheapestProduct} = require("../../../controllers/product");
 
 /**
- * Returns cheapest product
+ * Returns the cheapest product
  * Query param: name
  * @example search?name=ipadasync
  */

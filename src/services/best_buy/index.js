@@ -1,11 +1,13 @@
+const fetch = require('node-fetch');
+const {currencyConstants} = require('../../constants/product');
 const NAME = "BestBuy";
 const PRODUCT = {
-  currency: "CAD",
+  currency: currencyConstants.CAD,
   location: NAME
 };
 const KEY = 'pfe9fpy68yg28hvvma49sc89';
 const ROOT_API = 'https://api.bestbuy.com/v1/';
-const fetch = require('node-fetch');
+
 
 const getCheapestProduct = (name) => {
   return fetch(`${ROOT_API}products(name=${name}*)?sort=salePrice.asc&show=name,salePrice&facet=salePrice,1&pageSize=1&format=json&&apiKey=${KEY}`)
@@ -28,6 +30,7 @@ const productAdapter = (json) => {
       bestPrice: rawProduct.salePrice,
     }
   }
+  console.log('result', result);
   return result;
 };
 

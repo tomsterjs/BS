@@ -2,6 +2,10 @@ queryConstants = Object.freeze({
   NAME: 'name',
 });
 
-module.exports = {queryConstants};
+currencyConstants = Object.freeze({
+  CAD: 'CAD',
+});
+
+module.exports = {queryConstants, currencyConstants};
 
 
