@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const {getCheapestProduct} = require("../../../controllers/product");
 
-router.get('/search', function (req, res) {
-  res.send('Works');
-});
+/**
+ * Returns cheapest product
+ * Query param: name
+ * @example search?name=ipadasync
+ */
+router.get('/search', getCheapestProduct);
 
 module.exports = router;

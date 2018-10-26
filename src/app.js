@@ -1,7 +1,9 @@
 const express = require('express');
+require('express-async-errors');
 const logger = require('morgan');
 const searchRouter = require('./api/product/search');
 const app = express();
+
 
 app.use(logger('dev'));
 app.use(express.json());
